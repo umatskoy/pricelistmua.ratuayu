@@ -1,0 +1,620 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>RatuAyu by Fairuzqa - Pricelist 2026</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', 'Inter', system-ui, -apple-system, 'Roboto', sans-serif;
+            background: #fefaf5;
+            color: #2c2418;
+            padding: 20px;
+            line-height: 1.5;
+        }
+
+        .container {
+            max-width: 1300px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 32px;
+            box-shadow: 0 20px 35px -12px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            padding: 28px 24px 40px;
+        }
+
+        h1 {
+            font-size: 1.9rem;
+            text-align: center;
+            font-weight: 600;
+            letter-spacing: -0.3px;
+            background: linear-gradient(135deg, #b47c4a, #9b5e2c);
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+            margin-bottom: 8px;
+        }
+
+        .sub {
+            text-align: center;
+            color: #7f6b55;
+            margin-bottom: 32px;
+            font-size: 0.95rem;
+            border-bottom: 1px solid #f0e4d6;
+            padding-bottom: 16px;
+        }
+
+        /* category grid */
+        .category-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .category-card {
+            background: #fff7f0;
+            border-radius: 28px;
+            padding: 24px 20px;
+            cursor: pointer;
+            transition: all 0.25s ease;
+            border: 1px solid #f5e4d4;
+            box-shadow: 0 5px 12px rgba(0,0,0,0.02);
+            text-align: center;
+        }
+
+        .category-card:hover {
+            transform: translateY(-5px);
+            border-color: #dbbd9b;
+            background: #fffaf3;
+            box-shadow: 0 20px 25px -12px rgba(156, 100, 45, 0.15);
+        }
+
+        .category-icon {
+            font-size: 2.8rem;
+            margin-bottom: 12px;
+        }
+
+        .category-card h3 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #6b3f1c;
+            margin-bottom: 8px;
+        }
+
+        .category-card p {
+            color: #8f6b44;
+            font-size: 0.85rem;
+        }
+
+        /* content area */
+        .content-wrapper {
+            animation: fadeIn 0.25s ease;
+        }
+
+        .back-btn {
+            background: none;
+            border: none;
+            font-size: 1rem;
+            font-weight: 500;
+            color: #b47c4a;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 28px;
+            padding: 8px 12px;
+            border-radius: 60px;
+            transition: background 0.2s;
+        }
+
+        .back-btn:hover {
+            background: #fef0e4;
+        }
+
+        .package-section {
+            margin-bottom: 32px;
+            border-bottom: 1px dashed #efdecb;
+            padding-bottom: 24px;
+        }
+
+        .package-title {
+            font-size: 1.7rem;
+            font-weight: 700;
+            color: #4f2e12;
+            margin-bottom: 12px;
+            border-left: 6px solid #e7b87b;
+            padding-left: 16px;
+        }
+
+        .price {
+            font-size: 1.35rem;
+            font-weight: 700;
+            color: #c1813b;
+            margin: 10px 0 8px;
+        }
+
+        .package-desc {
+            background: #fef9f2;
+            padding: 16px 20px;
+            border-radius: 24px;
+            margin: 12px 0;
+        }
+
+        .package-desc ul, .note-list {
+            margin: 12px 0 8px 20px;
+        }
+
+        .package-desc li {
+            margin: 6px 0;
+        }
+
+        .badge {
+            background: #e9dfd3;
+            color: #664d31;
+            display: inline-block;
+            padding: 4px 12px;
+            border-radius: 40px;
+            font-size: 0.7rem;
+            font-weight: 500;
+            margin-right: 10px;
+        }
+
+        .terms {
+            background: #f3ede7;
+            border-radius: 24px;
+            padding: 20px;
+            margin-top: 28px;
+            font-size: 0.85rem;
+        }
+
+        .terms h4 {
+            font-size: 1.2rem;
+            margin-bottom: 12px;
+            color: #533e26;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        hr {
+            margin: 20px 0;
+            border: none;
+            border-top: 1px solid #f0e0d0;
+        }
+
+        .grid-2col {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+        }
+
+        .note-warning {
+            background: #fff0e0;
+            padding: 12px 18px;
+            border-radius: 18px;
+            font-size: 0.85rem;
+            color: #a5562c;
+            margin-top: 16px;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 40px;
+            font-size: 0.75rem;
+            color: #b9a48c;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(8px);}
+            to { opacity: 1; transform: translateY(0);}
+        }
+
+        @media (max-width: 700px) {
+            .container {
+                padding: 20px 16px;
+            }
+            .package-title {
+                font-size: 1.4rem;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="container" id="app">
+    <h1>🌾 RatuAyu by Fairuzqa</h1>
+    <div class="sub">Pricelist Pernikahan & Kecantikan 2026 • Makeup Artist Yogyakarta</div>
+
+    <!-- tampilan daftar kategori -->
+    <div id="categoryView">
+        <div class="category-grid">
+            <div class="category-card" data-cat="wedding">
+                <div class="category-icon">💍👰‍♀️</div>
+                <h3>Wedding Packages</h3>
+                <p>Akad, Resepsi, Adat, dan Attire</p>
+            </div>
+            <div class="category-card" data-cat="regulerOwner">
+                <div class="category-icon">🎓✨</div>
+                <h3>Reguler & Graduation</h3>
+                <p>By Owner Fairuzqa • Wisuda, Bridesmaid</p>
+            </div>
+            <div class="category-card" data-cat="regulerTeam">
+                <div class="category-icon">🤝💄</div>
+                <h3>Reguler by Team</h3>
+                <p>Makeup + Hijab by Tim RatuAyu</p>
+            </div>
+            <div class="category-card" data-cat="engagement">
+                <div class="category-icon">📸💍</div>
+                <h3>Engagement & Prewedding</h3>
+                <p>Lamaran, sesi foto prewed</p>
+            </div>
+        </div>
+        <footer>✧ pilih kategori untuk melihat detail paket & harga ✧</footer>
+    </div>
+
+    <!-- konten dinamis akan tampil di sini setelah pilih kategori -->
+    <div id="detailView" style="display: none;"></div>
+</div>
+
+<script>
+    // --------------------------------------------------------------
+    // DATA KATEGORI berdasarkan ekstraksi dari file PDF
+    // --------------------------------------------------------------
+    const dataWedding = {
+        title: "💒 Wedding Packages 2026",
+        packages: [
+            {
+                name: "Silver Package",
+                desc: "Hanya Akad / Holy Matrimony / Ngunduh Mantu",
+                details: [
+                    "Makeup + Hairdo/Hijabdo on D-Day",
+                    "Simple Makeup for the Groom",
+                    "Fresh Flower atau Melati Asli (pilih salah satu)",
+                    "Jika pilih Melati: a. Melati Pengasih & Tibo Dodo untuk Pengantin Putri, b. Melati Ronce & Keris untuk Pengantin Pria"
+                ],
+                priceNote: "Harga hubungi admin (belum termasuk transport)"
+            },
+            {
+                name: "Gold Package",
+                desc: "Akad & Resepsi (satu hari)",
+                details: [
+                    "Make Up + Retouch (maksimal 5 jam dari make up pertama)",
+                    "Hairdo/Hijabdo",
+                    "Simple Make Up for the Groom",
+                    "Make Up 2 Ibu Mempelai + Hijabdo 2 Mom (Hairdo 2 @300k)",
+                    "Fresh Flower atau Melati (pilih salah satu, bonus rangkaian melati)"
+                ],
+                priceNote: "Harga belum tertera, hubungi admin • Durasi makeup 3 jam • Retouch 45-60 menit • Charge luar DIY start 300K"
+            },
+            {
+                name: "Platinum Package (Attire included)",
+                desc: "Only Akad / Holy Matrimony / Ngunduh Mantu",
+                price: "Rp 6.500.000",
+                details: [
+                    "Makeup Bride dan Groom",
+                    "Hairdo/Hijabdo Bride dan Groom",
+                    "Sepasang Busana Akad / Pemberkatan (from @mbokdandan.attire)",
+                    "Fresh Flower / Bunga Melati Asli (Non Adat)"
+                ],
+                note: "Free Softlens & Fake Nails (pilih dari stok), Manekin dan Robe. Tambahan bahan bludru/ekor panjang +500K"
+            },
+            {
+                name: "Diamond Package (Attire included)",
+                desc: "Akad & Resepsi satu hari",
+                price: "Rp 10.000.000",
+                details: [
+                    "Makeup Bride dan Groom",
+                    "Hairdo/Hijabdo Bride dan Groom",
+                    "Busana 2 Pasang Pengantin (Akad & Resepsi)",
+                    "Aksesoris Modern",
+                    "Makeup + Hairdo/Hijabdo 2 ibu mempelai",
+                    "Retouch makeup bride maks 5 jam, Retouch hairdo/hijab bride",
+                    "Fresh Flower / Bunga Melati Asli (Non Adat)"
+                ],
+                note: "FREE : Softlens, Fake Nails, Manekin & Robe. Tambahan bludru/ekor panjang +500K. Berlaku untuk area DIY."
+            },
+            {
+                name: "Traditional Wedding Adat",
+                desc: "Tambahan biaya jika menggunakan adat (sudah termasuk aksesoris lengkap, melati asli, jasa pasang, hairdo & paes sesuai paket)",
+                items: [
+                    "Jogja Putri Tanpa Paes: 1.500K",
+                    "Paes Jogja Putri: 2.000K",
+                    "Jogja Putri Hijab: 1.500K",
+                    "Paes Ageng: 1.500K",
+                    "Solo Putri Tanpa Paes: 1.500K",
+                    "Paes Solo Putri: 2.000K",
+                    "Solo Putri Hijab: 1.500K",
+                    "Solo Basahan: 1.500K",
+                    "Siger Sunda: start 1.500K",
+                    "Palembang/Minang dll: mulai 2.000K",
+                    "Upacara Panggih (team 2 org, uborampe, nasi kuning, kembar mayang): 2.500K"
+                ],
+                priceNote: "Harga terpisah dari paket makeup/attire, hanya tambahan jika menggunakan rangkaian adat"
+            }
+        ],
+        globalNotes: [
+            "Belum termasuk transportasi & pemasangan jarik (jika busana bukan dari vendor kami)",
+            "Durasi makeup 3 jam untuk paket reguler wedding",
+            "Paket tidak termasuk pemandu sungkeman",
+            "Retouch duration 45-60 menit tergantung look",
+            "Booking + DP sesuai kesepakatan, pelunasan H-1 / saat MUA datang",
+            "Booking dibuka 6 bulan sebelum acara",
+            "Pembatalan dari client: semua pembayaran tidak dikembalikan",
+            "Perubahan tanggal tergantung ketersediaan RatuAyu",
+            "Dilarang merokok selama proses makeup",
+            "Untuk home service: sediakan meja tinggi, 2 kursi, pendingin ruangan (kipas/AC)"
+        ]
+    };
+
+    const dataRegulerOwner = {
+        title: "🎓 REGULER & GRADUATION by Owner (Fairuzqa)",
+        packages: [
+            {
+                name: "Makeup + Hijabdo Clean Hijab + Pemasangan Toga",
+                price: "Harga hubungi admin (call/WA)",
+                details: ["Makeup wajah + hijab rapi, plus pemasangan toga. Cocok wisudawati."]
+            },
+            {
+                name: "Makeup + Hairdo",
+                price: "Harga hubungi admin",
+                details: ["Penataan rambut + rias wajah untuk bridesmaid, sister bride, wisuda"]
+            },
+            {
+                name: "Makeup Pendamping (khusus pendamping wisuda)",
+                price: "Harga spesial pendamping, booking wajib disertai wisudawati utama",
+                details: ["Hijab dirapikan by MUA/Stylist +100K, Hairdo +150K"]
+            }
+        ],
+        additional: {
+            title: "💇‍♀️ Additional Services",
+            list: [
+                "Hairdo by hairstylist : 150K",
+                "Hijab by hijabstylist : 100K",
+                "Hijab Drapery : 200K (wajib hijabstylist)"
+            ]
+        },
+        terms: [
+            "Graduation minimal 2 orang, jika 1 orang transportasi lebih mahal.",
+            "Booking tanggal diperbolehkan jika tanggal sudah fix.",
+            "Harga diatas belum termasuk transport (home service).",
+            "Free Home Service minimal 3 orang & jarak <5km dari studio RatuAyu (Jakal KM 10).",
+            "Tidak termasuk softlens & aksesoris rambut.",
+            "Batas reschedule hanya 1x (menyesuaikan jadwal RatuAyu).",
+            "Booking wajib DP (nominal sesuai admin). Pembatalan dari client, DP hangus.",
+            "Perubahan tanggal maksimal 1x, jika RatuAyu tidak available akan dihandle team, jika team tidak ada maka DP hangus.",
+            "Aksesoris hairdo & keperluan hijab (ciput, aksesoris) dari client.",
+            "Mulai make up sebelum jam 2.30 WIB dikenakan charge Rp 100.000",
+            "Keperluan home service: konfirmasi kondisi ruangan, siapkan kipas/AC, setrika jilbab H-1, siapkan 2 lembar kertas HVS untuk merapikan toga."
+        ]
+    };
+
+    const dataRegulerTeam = {
+        title: "👥 REGULER Makeup by Team RatuAyu",
+        mainPackage: {
+            name: "Reguler by Team",
+            price: "Rp 350.000",
+            details: [
+                "Makeup + Clean Hijab by Team MUA",
+                "Pemasangan Toga",
+                "Produk lokal terbaik dan pilihan"
+            ]
+        },
+        additional: [
+            "Hairdo by hairstylist : 150K",
+            "Hijab by hijabstylist : 100K",
+            "Hijab Drapery : 200K (wajib hijabstylist, model drapery)"
+        ],
+        notes: [
+            "Hijab by MUA hanya simple hijab (Clean Hijab).",
+            "Graduation minimal 2 orang, jika 1 orang transportasi lebih mahal.",
+            "Booking tanggal diperbolehkan jika tanggal sudah fix.",
+            "Harga diatas belum termasuk transport home service.",
+            "Free Home Service minimal 3 orang & jarak <5km dari studio RatuAyu (Jakal KM 10).",
+            "Tidak termasuk softlens dan tidak bisa tambah softlens.",
+            "Batas reschedule 1x (menyesuaikan jadwal Team RatuAyu)."
+        ],
+        termsSame: [
+            "Booking harus disertai DP (nominal sesuai admin).",
+            "Pembatalan dari client → semua pembayaran tidak dikembalikan.",
+            "Perubahan tanggal maksimal 1x; jika tim tidak available maka DP hangus.",
+            "Aksesoris hairdo & keperluan hijab dari client.",
+            "Mulai Make Up sebelum jam 2.30 WIB dikenakan charge Rp 100.000.",
+            "Home service: konfirmasi ruangan, siapkan kipas/AC, setrika jilbab H-1, siapkan 2 kertas HVS untuk toga."
+        ]
+    };
+
+    const dataEngagement = {
+        title: "💍 Engagement & Prewedding 2026",
+        engagement: {
+            name: "Engagement Makeup",
+            priceHairdo: "Rp 850.000 (Makeup + Hairdo)",
+            priceHijab: "Rp 800.000 (Makeup + Hijab)",
+            duration: "Durasi 1.5 jam",
+            extra: "Model hijab Drapery +200.000, belum termasuk softlens & transport",
+            booking: "Booking dibuka 3 bulan sebelum acara"
+        },
+        prewed: {
+            name: "Pre-Wedding Package",
+            priceHairdo: "Rp 850.000 (Makeup + Hairdo)",
+            priceHijab: "Rp 800.000 (Makeup + Hijab)",
+            addOns: [
+                "Pemakaian baju adat (sepasang) : 100K",
+                "Retouch MUA sampai look kedua : 600K",
+                "Retouch Hairstylist : 500K"
+            ],
+            duration: "Durasi makeup 1.5 jam",
+            note: "Model hijab drapery +200.000, belum termasuk softlens & transport. Booking 3 bulan sebelum acara."
+        },
+        terms: [
+            "Booking harus disertai DP (nominal sesuai admin).",
+            "Pembatalan dari client → semua pembayaran tidak dikembalikan.",
+            "Perubahan tanggal & waktu maksimal 1x, jika RatuAyu tidak available akan dihandle tim, jika tim unavailable maka DP hangus.",
+            "Aksesoris hairdo & keperluan hijab dari client.",
+            "Mulai make up sebelum jam 2.30 WIB dikenakan charge Rp 100.000.",
+            "Home service: konfirmasi ruangan, siapkan kipas/AC, setrika jilbab H-1, dll."
+        ]
+    };
+
+    // --------------------------------------------------------------
+    // RENDER HELPER
+    // --------------------------------------------------------------
+    function renderWedding() {
+        let html = `<div class="content-wrapper">
+            <button class="back-btn" id="backToCategory">← Kembali ke kategori</button>
+            <div class="package-title">${dataWedding.title}</div>`;
+
+        for (let pkg of dataWedding.packages) {
+            html += `<div class="package-section">
+                        <div style="display:flex; align-items: baseline; flex-wrap:wrap; gap:8px;">
+                            <h3 style="font-size:1.45rem; font-weight:700; color:#543a22;">${pkg.name}</h3>
+                            ${pkg.price ? `<span class="price">${pkg.price}</span>` : ''}
+                        </div>
+                        <div class="package-desc">
+                            <p><strong>${pkg.desc || ''}</strong></p>
+                            <ul>`;
+            if (pkg.details) {
+                pkg.details.forEach(d => { html += `<li>${d}</li>`; });
+            }
+            if (pkg.items) {
+                html += `<li style="list-style: none; margin-top: 8px;"><strong>💠 Paket Adat :</strong></li>`;
+                pkg.items.forEach(item => { html += `<li>• ${item}</li>`; });
+            }
+            html += `</ul>`;
+            if (pkg.priceNote) html += `<div class="note-warning">📌 ${pkg.priceNote}</div>`;
+            if (pkg.note) html += `<div class="note-warning">✨ ${pkg.note}</div>`;
+            html += `</div></div>`;
+        }
+
+        html += `<div class="terms"><h4>📋 Ketentuan Wedding Package</h4><ul>`;
+        dataWedding.globalNotes.forEach(n => { html += `<li>${n}</li>`; });
+        html += `</ul><p class="note-warning" style="margin-top:12px">⭐ Untuk Silver & Gold (tanpa attire): detail lengkap hubungi admin. ⭐ Traditional wedding adalah biaya tambahan (belum termasuk makeup & busana utama).</p></div>`;
+        html += `</div>`;
+        return html;
+    }
+
+    function renderRegulerOwner() {
+        let html = `<div class="content-wrapper">
+            <button class="back-btn" id="backToCategory">← Kembali ke kategori</button>
+            <div class="package-title">${dataRegulerOwner.title}</div>`;
+        
+        for (let p of dataRegulerOwner.packages) {
+            html += `<div class="package-section">
+                        <h3 style="font-size:1.3rem;">${p.name}</h3>
+                        ${p.price ? `<div class="price">${p.price}</div>` : ''}
+                        <div class="package-desc"><ul>`;
+            p.details.forEach(d => html += `<li>${d}</li>`);
+            html += `</ul>${p.priceNote ? `<div class="note-warning">${p.priceNote}</div>` : ''}</div></div>`;
+        }
+        if(dataRegulerOwner.additional) {
+            html += `<div class="package-section"><h3>➕ ${dataRegulerOwner.additional.title}</h3><ul>`;
+            dataRegulerOwner.additional.list.forEach(ad => html += `<li>${ad}</li>`);
+            html += `</ul></div>`;
+        }
+        html += `<div class="terms"><h4>📜 Term & Condition Reguler & Graduation (Owner)</h4><ul>`;
+        dataRegulerOwner.terms.forEach(t => html += `<li>${t}</li>`);
+        html += `</ul></div></div>`;
+        return html;
+    }
+
+    function renderRegulerTeam() {
+        let html = `<div class="content-wrapper">
+            <button class="back-btn" id="backToCategory">← Kembali ke kategori</button>
+            <div class="package-title">${dataRegulerTeam.title}</div>
+            <div class="package-section">
+                <h3 style="font-size:1.4rem;">${dataRegulerTeam.mainPackage.name}</h3>
+                <div class="price">${dataRegulerTeam.mainPackage.price}</div>
+                <div class="package-desc"><ul>`;
+        dataRegulerTeam.mainPackage.details.forEach(d => html += `<li>${d}</li>`);
+        html += `</ul></div>
+                <div><strong>💲 Tambahan :</strong><ul>`;
+        dataRegulerTeam.additional.forEach(a => html += `<li>${a}</li>`);
+        html += `</ul></div>`;
+        if(dataRegulerTeam.notes.length){
+            html += `<div class="note-warning"><strong>📢 Catatan:</strong><ul>`;
+            dataRegulerTeam.notes.forEach(n => html += `<li>${n}</li>`);
+            html += `</ul></div>`;
+        }
+        html += `<div class="terms"><h4>📌 Terms & Conditions Team RatuAyu</h4><ul>`;
+        dataRegulerTeam.termsSame.forEach(t => html += `<li>${t}</li>`);
+        html += `</ul></div></div></div>`;
+        return html;
+    }
+
+    function renderEngagement() {
+        let html = `<div class="content-wrapper">
+            <button class="back-btn" id="backToCategory">← Kembali ke kategori</button>
+            <div class="package-title">${dataEngagement.title}</div>
+            <div class="grid-2col">
+                <div class="package-section">
+                    <h3>💐 Engagement</h3>
+                    <div class="price">${dataEngagement.engagement.priceHairdo}</div>
+                    <div class="price">${dataEngagement.engagement.priceHijab}</div>
+                    <div class="package-desc">
+                        <ul><li>${dataEngagement.engagement.duration}</li><li>${dataEngagement.engagement.extra}</li><li>${dataEngagement.engagement.booking}</li></ul>
+                    </div>
+                </div>
+                <div class="package-section">
+                    <h3>📸 Pre-Wedding</h3>
+                    <div class="price">${dataEngagement.prewed.priceHairdo}</div>
+                    <div class="price">${dataEngagement.prewed.priceHijab}</div>
+                    <div class="package-desc">
+                        <ul><li>${dataEngagement.prewed.duration}</li>`;
+        dataEngagement.prewed.addOns.forEach(ad => html += `<li>${ad}</li>`);
+        html += `<li>${dataEngagement.prewed.note}</li></ul></div>
+                </div>
+            </div>
+            <div class="terms"><h4>📜 Terms & Conditions Engagement & Prewed</h4><ul>`;
+        dataEngagement.terms.forEach(t => html += `<li>${t}</li>`);
+        html += `</ul><p class="note-warning" style="margin-top:12px">* Harga belum termasuk transportasi, softlens, dan hijab drapery +200.000 (kecuali disebut).</p></div></div>`;
+        return html;
+    }
+
+    // --------------------------------------------------------------
+    // ROUTING / UI SWITCH
+    // --------------------------------------------------------------
+    const categoryView = document.getElementById('categoryView');
+    const detailView = document.getElementById('detailView');
+    let currentRendered = null;
+
+    function showCategory() {
+        categoryView.style.display = 'block';
+        detailView.style.display = 'none';
+        detailView.innerHTML = '';
+        currentRendered = null;
+    }
+
+    function showDetail(renderFunc) {
+        const contentHtml = renderFunc();
+        detailView.innerHTML = contentHtml;
+        categoryView.style.display = 'none';
+        detailView.style.display = 'block';
+        // attach back event listener after insert
+        const backBtn = document.getElementById('backToCategory');
+        if (backBtn) {
+            backBtn.addEventListener('click', showCategory);
+        }
+        currentRendered = renderFunc;
+    }
+
+    // Event listener untuk card kategori
+    document.querySelectorAll('.category-card').forEach(card => {
+        card.addEventListener('click', (e) => {
+            const cat = card.getAttribute('data-cat');
+            if (cat === 'wedding') showDetail(renderWedding);
+            else if (cat === 'regulerOwner') showDetail(renderRegulerOwner);
+            else if (cat === 'regulerTeam') showDetail(renderRegulerTeam);
+            else if (cat === 'engagement') showDetail(renderEngagement);
+        });
+    });
+
+    // initial state
+    showCategory();
+</script>
+</body>
+</html>
